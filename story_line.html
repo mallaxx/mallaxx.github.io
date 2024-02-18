@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arctic Monitoring Storyline</title>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0f1624;
+    color: white;
+  }
+  .story-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .frame {
+    display: none;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .frame-description{
+    font-size:20px;
+  }
+  .frame img {
+    max-width: 100%;
+    height: auto;
+  }
+  #frame1 {
+    display: block;
+  }
+  .nav-buttons {
+    text-align: center;
+  }
+  button {
+    padding: 10px 20px;
+    margin: 0 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="story-container">
+  <!-- Frame 1: Introduction to the Arctic -->
+  
+  
+  <div class="story-container">
+    <!-- Frame 1: Introduction to the Arctic -->
+    <div id="frame1" class="frame active">
+      <img style='border-radius:30px;'src="images/world_map.png" alt="Arctic Overview">
+      <div class="frame-description">
+        <p>An aerial view of the Arctic landscape, showcasing the intricate patterns of ice and water channels weaving through the snow-covered mountains.</p>
+      </div>
+    </div>
+    <div id="frame2" class="frame active">
+      <img style='border-radius:30px;'src="images/zoomedinmap.png" alt="Arctic Overview">
+      <div class="frame-description">
+        <p>A closer look at the Arctic ice reveals the complex interplay of ice formations and melting pools, highlighting the dynamic nature of this polar environment.</p>
+      </div>
+    </div>
+    <div id="frame3" class="frame active">
+      <img style='border-radius:30px;'src="images/iot_pointer.png" alt="Arctic Overview">
+      <div class="frame-description">
+        <p>A digital overlay marks a significant point in the Arctic, where IoT devices are deployed to gather and relay precise geospatial data.</p>
+      </div>
+    </div>
+    <div id="frame4" class="frame active">
+      <img style='border-radius:30px;'src="images/iot_device.png" alt="Arctic Overview">
+      <div class="frame-description">
+        <p>An isolated IoT device stands amidst the Arctic's vast expanse, equipped with sensors to continuously track environmental conditions.</p>
+      </div>
+    </div>
+    <div id="frame5" class="frame active">
+      <img style='border-radius:30px;'src="images/satellite_img.png" alt="Arctic Overview">
+      <div class="frame-description">
+        <p>A satellite orbits the Earth, beaming down rays of data collection over the Arctic region, instrumental in monitoring climate and environmental changes.</p>
+      </div>
+    </div>
+    <div id="frame6" class="frame active">
+      <img style='border-radius:30px;'src="images/satellitesendbackdata.png" alt="Arctic Overview">
+      <div class="frame-description">
+        <p>An artistic representation of a satellite in space, using advanced sensors to scan and transmit vital information from the Arctic's surface to researchers in Canada.</p>
+      </div>
+    </div>
+    <div id="frame7" class="frame active">
+      <img style='border-radius:30px;'src="images/analyis.png" alt="Arctic Overview">
+      <div class="frame-description">
+        <p>A sophisticated control center where analysts scrutinize the data streaming in from the Arctic, piecing together a larger picture of global climate health.</p>
+      </div>
+    </div>
+
+  
+  <div class="nav-buttons">
+    <button onclick="previousFrame()">Previous</button>
+    <button onclick="nextFrame()">Next</button>
+  </div>
+</div>
+
+<script>
+document.addEventListener('keyup', function(event) {
+    if (event.key === 'ArrowLeft') {
+        previousFrame();
+    } else if (event.key === 'ArrowRight') {
+        nextFrame();
+    }
+});
+
+let currentFrame = 1;
+
+function showFrame(frameNumber) {
+    // Hide all frames
+    document.querySelectorAll('.frame').forEach(frame => {
+        frame.style.display = 'none';
+    });
+
+    // Show the current frame
+    const frameId = `frame${frameNumber}`;
+    const frame = document.getElementById(frameId);
+    if (frame) {
+        frame.style.display = 'block';
+    }
+}
+
+function nextFrame() {
+    if (currentFrame === 7) {
+        return;
+    }
+    currentFrame++;
+    showFrame(currentFrame);
+}
+
+function previousFrame() {
+    if (currentFrame === 1) {
+        return;
+    }
+    currentFrame--;
+    showFrame(currentFrame);
+}
+
+</script>
+
+</body>
+</html>

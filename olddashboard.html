@@ -1,0 +1,196 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arctic Circle Dashboard</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    #dashboard {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+        padding: 20px;
+    }
+    .card {
+        background-color: #f0f0f0;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        margin-top: 0;
+    }
+</style>
+</head>
+<body>
+
+<div id="dashboard">
+    <div class="card">
+        <h2>Temperature</h2>
+        <p>Current Temperature: <span id="temp">-5°C</span></p>
+        <p>Predicted Temperature: <span id="predicted-temp">-7°C</span></p>
+    </div>
+    <div class="card">
+        <h2>Ice Melting</h2>
+        <p>Ice Cover: <span id="ice-cover">75%</span></p>
+        <p>Rate of Melting: <span id="melting-rate">2% per year</span></p>
+    </div>
+    <div class="card">
+        <h2>Planes & Ships</h2>
+        <p>Number of Planes: <span id="plane-count">10</span></p>
+        <p>Number of Ships: <span id="ship-count">5</span></p>
+    </div>
+</div>
+
+<script>
+    // Dummy data for demonstration purposes
+    document.getElementById('temp').textContent = "-5°C";
+    document.getElementById('predicted-temp').textContent = "-7°C";
+    document.getElementById('ice-cover').textContent = "75%";
+    document.getElementById('melting-rate').textContent = "2% per year";
+    document.getElementById('plane-count').textContent = "10";
+    document.getElementById('ship-count').textContent = "5";
+</script>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arctic Circle Dashboard</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+    }
+    #dashboard {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: 20px;
+        padding: 20px;
+    }
+    .card {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+    h2 {
+        margin-top: 0;
+        color: #333333;
+    }
+    canvas {
+        max-width: 100%;
+        height: auto;
+    }
+</style>
+</head>
+<body>
+
+<div id="dashboard">
+    <div class="card">
+        <h2>Temperature</h2>
+        <canvas id="tempChart"></canvas>
+    </div>
+    <div class="card">
+        <h2>Ice Melting</h2>
+        <canvas id="iceChart"></canvas>
+    </div>
+    <div class="card">
+        <h2>Planes & Ships</h2>
+        <canvas id="planeShipChart"></canvas>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<script>
+    // Dummy data for demonstration purposes
+    const tempData = {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+            label: 'Temperature (°C)',
+            data: [0, -1, -2, -3, -4, -5, -6],
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+        }]
+    };
+    const tempCtx = document.getElementById('tempChart').getContext('2d');
+    new Chart(tempCtx, {
+        type: 'line',
+        data: tempData,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    const iceData = {
+        labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+        datasets: [{
+            label: 'Ice Cover (%)',
+            data: [80, 78, 75, 72, 70, 68, 65],
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1
+        }]
+    };
+    const iceCtx = document.getElementById('iceChart').getContext('2d');
+    new Chart(iceCtx, {
+        type: 'bar',
+        data: iceData,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    const planeShipData = {
+        labels: ['Planes', 'Ships'],
+        datasets: [{
+            label: 'Number',
+            data: [10, 5],
+            backgroundColor: [
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 1
+        }]
+    };
+    const planeShipCtx = document.getElementById('planeShipChart').getContext('2d');
+    new Chart(planeShipCtx, {
+        type: 'bar',
+        data: planeShipData,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
+

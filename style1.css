@@ -1,0 +1,81 @@
+/* Resetting default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Applying a background color to the body */
+  body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0f1624;
+    color: white;
+}
+  
+  /* Ensuring the story container takes full viewport height */
+  .story-container {
+    height: 100vh;
+    overflow: hidden; /* Preventing overflow content */
+    position: relative; /* For absolute positioning inside */
+  }
+  
+  /* Styling the frames */
+  .frame {
+    display: none; /* Hiding all frames initially */
+    height: 100vh; /* Taking full viewport height */
+    position: absolute; /* Positioning frames absolutely */
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  /* Styling images within frames */
+  .frame img {
+    width: 100%; /* Ensuring images take full width of their containers */
+    height: 100%; /* Ensuring images take full height of their containers */
+    object-fit: cover; /* Covering the entire frame */
+  }
+  
+  /* Styling frame descriptions */
+  .frame-description {
+    position: absolute;
+    bottom: 20px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    color: white; /* Text color for descriptions */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 10px; /* Adjust padding as needed */
+    max-width: 300px; /* Adjust as needed */
+  }
+  
+  /* Navigation buttons */
+  .navigation {
+    position: absolute;
+    bottom: 20px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  /* Styling the navigation buttons */
+  button {
+    padding: 10px 20px;
+    background-color: #333; /* Button background color */
+    color: white; /* Button text color */
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  /* Styling hover effects for buttons */
+  button:hover {
+    background-color: #555; /* Adjust as needed */
+  }
+  
+  /* Showing the current frame */
+  .current {
+    display: block; /* Making the current frame visible */
+  }
+  
