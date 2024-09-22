@@ -1,12 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const player = new Plyr('#player', {
-        controls: [],
+    // Initialize Plyr for each video with unique IDs
+    const player1 = new Plyr('#player1', {
+        controls: ['play', 'progress', 'current-time', 'mute', 'fullscreen'],
+        fullscreen: { enabled: true, fallback: true, iosNative: true },
+        autoplay: true,
+        muted: true,
+        loop: { active: true },
+    });
+
+    const player2 = new Plyr('#player2', {
+        controls: ['play', 'progress', 'current-time', 'mute', 'fullscreen'],
         fullscreen: { enabled: true, fallback: true, iosNative: true },
         autoplay: true,
         muted: true,
         loop: { active: true },
     });
 });
+
 
 document.addEventListener('keyup', function(event) {
     const slides = document.querySelectorAll('.slide');

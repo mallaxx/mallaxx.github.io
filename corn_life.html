@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life of Corn - From Farm to Table (Energy Usage)</title>
+    <style>
+        .flowchart-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 50px 0;
+            padding: 10px;
+        }
+
+        .stage {
+            width: 150px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            position: relative;
+        }
+
+        .stage h3 {
+            color: #4CAF50;
+        }
+
+        .stage p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .energy {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #FF5722;
+            font-weight: bold;
+        }
+
+        .stage::after {
+            content: '➡';
+            position: absolute;
+            top: 50%;
+            right: -20px;
+            font-size: 2em;
+            transform: translateY(-50%);
+        }
+
+        /* Hide arrow for the last element */
+        .stage:last-child::after {
+            content: '';
+        }
+
+        /* Customize appearance */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        .arrow {
+            width: 30px;
+            font-size: 1.5em;
+            margin: 0 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>The Journey of Corn - From Farm to Home (Energy Usage in kWh)</h1>
+
+    <div class="flowchart-container">
+        <div class="stage">
+            <h3>Farm</h3>
+            <p>Corn is planted and harvested.</p>
+            <div class="energy">Energy: 20 kWh</div>
+        </div>
+    
+        <div class="stage">
+            <h3>Processing Plant</h3>
+            <p>Corn is cleaned, packaged, and processed.</p>
+            <div class="energy">Energy: 50 kWh</div>
+        </div>
+    
+        <div class="stage">
+            <h3>Distributor</h3>
+            <p>Corn is shipped to various suppliers.</p>
+            <div class="energy">Energy: 5 kWh</div>
+        </div>
+    
+        <div class="stage">
+            <h3>Store</h3>
+            <p>Corn arrives at the grocery store.</p>
+            <div class="energy">Energy: 2 kWh</div>
+        </div>
+    
+        <div class="stage">
+            <h3>Home</h3>
+            <p>Corn is bought and prepared.</p>
+            <div class="energy">Energy: 0.2 kWh</div>
+        </div>
+    </div>
+
+    <div>
+        <img src="corn1.png" style='width:35%; justify-content: center; text-align: center; ' alt="">
+    </div>
+
+</body>
+</html>
